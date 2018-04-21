@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<field name="SLP"  dimensions="H2D"   long_name="sea level pressure"  type="state"  default_unit="Pa" />
+<field name="CLDFRC"  dimensions="H2D"   long_name="column cloud fraction"  type="state"  default_unit="fraction" />
+<field name="TS"  dimensions="H2D"   long_name="surface temperature"  type="state"  default_unit="K" />
+<field name="CMFMC"  dimensions="V3D"   long_name="Moist convection mass flux"  type="state"  default_unit="kg m-2 s-1" />
+<field name="DQIDTMST"  dimensions="V3D"   long_name="ice tendency, mst proc"  type="state"  default_unit="kg kg-1 s-1" />
+<field name="DQLDTMST"  dimensions="V3D"   long_name="H2O tendency, mst proc"  type="state"  default_unit="kg kg-1 s-1" />
+<field name="DQVDTMST"  dimensions="V3D"   long_name="vapor tendency, mst proc"  type="state"  default_unit="kg kg-1 s-1" />
+<field name="DTRAIN"  dimensions="V3D"   long_name="detrainment flux"  type="state"  default_unit="kg m-2 s-1" />
+<field name="MOISTQ"  dimensions="V3D"   long_name="tendency in sp. C17"  type="state"  default_unit="g kg-1 day-1" />
+<field name="OPTDEP"  dimensions="V3D"   long_name="visible optical depth"  type="state"  default_unit="unitless" />
+<field name="PS"  dimensions="H2D"   long_name="sfc press at timestep"  type="state"  default_unit="Pa" />
