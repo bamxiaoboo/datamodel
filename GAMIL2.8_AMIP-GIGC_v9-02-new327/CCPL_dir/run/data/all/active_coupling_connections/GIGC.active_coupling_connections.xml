@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<Component name="GIGC">
+    <import_interfaces>
+        <interface interface_name="receive_data_from_GAMIL">
+            <fields comp_full_name="gamil" interface_name="send_data_to_GIGC">
+                <field name="PS" />
+                <field name="V" />
+                <field name="U" />
+                <field name="T" />
+                <field name="SPHU" />
+                <field name="RH" />
+                <field name="OPTDEP" />
+                <field name="TS" />
+                <field name="SLP" />
+            </fields>
+        </interface>
+    </import_interfaces>
+    <export_interfaces />
+</Component>

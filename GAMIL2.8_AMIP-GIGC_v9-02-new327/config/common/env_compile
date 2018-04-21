@@ -1,4 +1,5 @@
 export ENSEMBLE_NUM=0
+export ENSEMBLE_IDX=-1
 export LIBROOT=/data3/work/yuxinzhu/test/GAMIL2.8_AMIP-GIGC_v9-02-new327/run/lib
 export INCROOT=/data3/work/yuxinzhu/test/GAMIL2.8_AMIP-GIGC_v9-02-new327/run/lib/include
 export COMMON_COMPILER=/data3/work/yuxinzhu/test/GAMIL2.8_AMIP-GIGC_v9-02-new327/config/common/machine/generic_linux/common_compiler.generic_linux.cfg

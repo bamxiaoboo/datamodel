@@ -1,0 +1,4 @@
+<?xml version="1.0" ?>
+<Component>
+    <Online_Model comp_name="GIGC" full_name="GIGC" comp_type="atm_chem" parent_full_name="ROOT" enabled_in_parent_coupling_generation="true" processes=" 10" />
+</Component>
