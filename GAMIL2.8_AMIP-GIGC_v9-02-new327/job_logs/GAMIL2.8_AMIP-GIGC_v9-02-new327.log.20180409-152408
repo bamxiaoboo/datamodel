@@ -1,0 +1,130 @@
+t_setoption: option disabled: Usr Sys   
+t_setoption: option disabled: Usr Sys   
+t_setoption: option disabled: Usr Sys   
+t_setoption: option disabled: Usr Sys   
+t_setoption: option disabled: Usr Sys   
+t_setoption: option disabled: Usr Sys   
+t_setoption: option disabled: Usr Sys   
+t_setoption: option disabled: Usr Sys   
+t_setoption: option disabled: Usr Sys   
+t_setoption: option disabled: Usr Sys   
+ *** p4   : jbeg=  2     jend=  7    jpole=  0   inc_pole=   F
+ *** p4   : itop=  5     ibot=  3
+  *** p 4           beglat:endlat= 25 : 30    numlats=  6
+  *** p 4       beglatex:endlatex= 24 : 31  numlatsex=  8
+  *** p 4 beglatexdyn:endlatexdyn= 30 : 37
+  *** p 4                  numbnd=  1
+ *** p8   : jbeg=  2     jend=  7    jpole=  0   inc_pole=   F
+ *** p8   : itop=  9     ibot=  7
+  *** p 8           beglat:endlat= 49 : 54    numlats=  6
+  *** p 8       beglatex:endlatex= 48 : 55  numlatsex=  8
+  *** p 8 beglatexdyn:endlatexdyn=  6 : 13
+  *** p 8                  numbnd=  1
+ *** p2   : jbeg=  2     jend=  7    jpole=  0   inc_pole=   F
+ *** p2   : itop=  3     ibot=  1
+  *** p 2           beglat:endlat= 13 : 18    numlats=  6
+  *** p 2       beglatex:endlatex= 12 : 19  numlatsex=  8
+  *** p 2 beglatexdyn:endlatexdyn= 42 : 49
+  *** p 2                  numbnd=  1
+ *** p5   : jbeg=  2     jend=  7    jpole=  0   inc_pole=   F
+ *** p5   : itop=  6     ibot=  4
+  *** p 5           beglat:endlat= 31 : 36    numlats=  6
+  *** p 5       beglatex:endlatex= 30 : 37  numlatsex=  8
+  *** p 5 beglatexdyn:endlatexdyn= 24 : 31
+  *** p 5                  numbnd=  1
+ *** p3   : jbeg=  2     jend=  7    jpole=  0   inc_pole=   F
+ *** p3   : itop=  4     ibot=  2
+  *** p 3           beglat:endlat= 19 : 24    numlats=  6
+  *** p 3       beglatex:endlatex= 18 : 25  numlatsex=  8
+  *** p 3 beglatexdyn:endlatexdyn= 36 : 43
+  *** p 3                  numbnd=  1
+ *** p9   : jbeg=  3     jend=  7    jpole=  2   inc_pole=   T
+ *** p9   : itop= -1     ibot=  8
+  *** p 9           beglat:endlat= 55 : 60    numlats=  6
+  *** p 9       beglatex:endlatex= 54 : 61  numlatsex=  8
+  *** p 9 beglatexdyn:endlatexdyn=  0 :  7
+  *** p 9                  numbnd=  1
+ *** p6   : jbeg=  2     jend=  7    jpole=  0   inc_pole=   F
+ *** p6   : itop=  7     ibot=  5
+  *** p 6           beglat:endlat= 37 : 42    numlats=  6
+  *** p 6       beglatex:endlatex= 36 : 43  numlatsex=  8
+  *** p 6 beglatexdyn:endlatexdyn= 18 : 25
+  *** p 6                  numbnd=  1
+ *** p1   : jbeg=  2     jend=  7    jpole=  0   inc_pole=   F
+ *** p1   : itop=  2     ibot=  0
+  *** p 1           beglat:endlat=  7 : 12    numlats=  6
+  *** p 1       beglatex:endlatex=  6 : 13  numlatsex=  8
+  *** p 1 beglatexdyn:endlatexdyn= 48 : 55
+  *** p 1                  numbnd=  1
+          10 pes participating in computation
+ -----------------------------------
+ NODE#  NAME
+  0  public2.c-coupler.org
+  1  public2.c-coupler.org
+  2  public2.c-coupler.org
+  3  public2.c-coupler.org
+  4  public2.c-coupler.org
+  5  public2.c-coupler.org
+  6  public2.c-coupler.org
+  7  public2.c-coupler.org
+  8  public2.c-coupler.org
+  9  public2.c-coupler.org
+ *** p0   : jbeg=  2     jend=  6    jpole=  7   inc_pole=   T
+ *** p0   : itop=  1     ibot= -1
+ Problem factors: 2**           2  * 3**           1  * 5**           1
+ procid            0  assigned            6  latitude values from           1 
+  through            6
+ procid            1  assigned            6  latitude values from           7 
+  through           12
+ procid            2  assigned            6  latitude values from          13 
+  through           18
+ procid            3  assigned            6  latitude values from          19 
+  through           24
+ procid            4  assigned            6  latitude values from          25 
+  through           30
+ procid            5  assigned            6  latitude values from          31 
+  through           36
+ procid            6  assigned            6  latitude values from          37 
+  through           42
+ procid            7  assigned            6  latitude values from          43 
+  through           48
+ procid            8  assigned            6  latitude values from          49 
+  through           54
+ procid            9  assigned            6  latitude values from          55 
+  through           60
+ -----------------------------------------
+ Number of lats passed north & south =            1
+ Node  Partition  Extended Partition
+ -----------------------------------------
+  0      1-  6         0-  7
+  1      7- 12         6- 13
+  2     13- 18        12- 19
+  3     19- 24        18- 25
+  4     25- 30        24- 31
+  5     31- 36        30- 37
+  6     37- 42        36- 43
+  7     43- 48        42- 49
+  8     49- 54        48- 55
+  9     55- 60        54- 61
+  *** p 0           beglat:endlat=  1 :  6    numlats=  6
+  *** p 0       beglatex:endlatex=  0 :  7  numlatsex=  8
+  *** p 0 beglatexdyn:endlatexdyn= 54 : 61
+  *** p 0                  numbnd=  1
+ ----------------------------------------------------------
+     Gridpoint Atmosphere Model of IAP/LASG  (GAMIL)       
+                     version 2.0                           
+ ----------------------------------------------------------
+ DATE 04/20/18 TIME 16:25:11
+ ----------------------------------------------------------
+ DYCORE is EUL
+ *** p7   : jbeg=  2     jend=  7    jpole=  0   inc_pole=   F
+ *** p7   : itop=  8     ibot=  6
+  *** p 7           beglat:endlat= 43 : 48    numlats=  6
+  *** p 7       beglatex:endlatex= 42 : 49  numlatsex=  8
+  *** p 7 beglatexdyn:endlatexdyn= 12 : 19
+  *** p 7                  numbnd=  1
+ PARSE_NAMELIST: Namelist read returns           -1
+ PARSE_NAMELIST: Namelist variable CASEID must be set
+Notice: endrun: 
+rank 0 in job 79  public2.c-coupler.org_46173   caused collective abort of all ranks
+  exit status of rank 0: killed by signal 9 

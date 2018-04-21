@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<gamil.6hours.input_data_fields>
+    <data_files status="on" files_name="GEOS5-Climate/a6_nc/a6.*.nc" time_format="MMDDHH" />
+    <time_field status="on" specification="file_name" />
+    <horizontal_grid status="on" grid_name="GIGC_h2D_grid" specification="file_field">
+        <entry edge_type="LON_LAT" />
+        <entry coord_unit="degrees" />
+        <entry cyclic_or_acyclic="cyclic" />
+        <entry dim_size1="Lon-000" />
+        <entry dim_size="Lat-000" />
+        <entry min_lon="0.0" />
+        <entry max_lon="360.0" />
+        <entry min_lat="-90.0" />
+        <entry max_lat="90.0" />
+        <entry center_lon="LON" />
+        <entry center_lat="LAT" />
+        <entry annotation="register GC datamodel H2D grid" />
+    </horizontal_grid>
+    <vertical_grid status="on" grid_name="GIGC_1D_level_grid" grid_type="HYBRID" specification="file_name">
+        <entry file_name="GEOS-5_Reduced_Vertical_Grid_47_Levels.nc" />
+        <entry coord_unit="hPa" />
+        <entry top_value="1.0" />
+        <entry coef_A="Ap" />
+        <entry coef_B="Bp" />
+        <entry annotation="register GIGC V1D level grid" />
+    </vertical_grid>
+    <V3D_grid status="on" grid_name="GIGC_3D_lev_grid">
+        <horizontal_sub_grid grid_name="GIGC_h2d_grid" />
+        <vertical_sub_grid grid_name="GIGC_1D_level_grid" />
+        <mid_point_grid grid_name="GIGC_3D_grid" />
+        <surface_field type="external" variable="PS" />
+    </V3D_grid>
+    <input_fields>
+        <field name_in_datamodel="DQRCU" name_in_file="GMAO-3DS__DQRCON" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="DQRLSAN" name_in_file="GMAO-3DS__DQRLSC" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="DTRAIN" name_in_file="GMAO-3DS__DTRAIN" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="QI" name_in_file="GMAO-3DS__QI" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="QL" name_in_file="GMAO-3DS__QL" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="OPTDEP" name_in_file="GMAO-3DS__OPTDEPTH" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="TAUCLI" name_in_file="GMAO-3DS__TAUCLI" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="TAUCLW" name_in_file="GMAO-3DS__TAUCLW" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="CLDF" name_in_file="GMAO-3DS__CLDF" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="PV" name_in_file="GMAO-3DS__PV" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="SPHU" name_in_file="GMAO-3DS__SPHU" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="RH" name_in_file="GMAO-3DS__RH" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="RH" name_in_file="GMAO-3DS__RH" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="T" name_in_file="GMAO-3DS__T" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="U" name_in_file="GMAO-3DS__U" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="V" name_in_file="GMAO-3DS__V" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="DQIDTMST" name_in_file="GMAO-3DS__DQIDTMST" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="DQLDTMST" name_in_file="GMAO-3DS__DQLDTMST" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="DQVDTMST" name_in_file="GMAO-3DS__DQVDTMST" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="MOISTQ" name_in_file="GMAO-3DS__MOISTQ" grid_name="GIGC_3D_grid" />
+        <field name_in_datamodel="CMFMC" name_in_file="GMAO-3DS__CMFMC" grid_name="GIGC_3D_grid" />
+    </input_fields>
+</gamil.6hours.input_data_fields>

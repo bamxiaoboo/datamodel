@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<gamil.3hours.input_data_fields>
+    <data_files status="on" files_name="GEOS5-Climate/a3_nc/a3.*.nc" time_format="MMDDHH" />
+    <time_field status="on" specification="file_name" time_point_type="start" />
+    <horizontal_grid status="on" grid_name="GIGC_h2D_grid" specification="file_field">
+        <entry edge_type="LON_LAT" />
+        <entry coord_unit="degrees" />
+        <entry cyclic_or_acyclic="cyclic" />
+        <entry dim_size1="Lon-000" />
+        <entry dim_size="Lat-000" />
+        <entry min_lon="0.0" />
+        <entry max_lon="360.0" />
+        <entry min_lat="-90.0" />
+        <entry max_lat="90.0" />
+        <entry center_lon="LON" />
+        <entry center_lat="LAT" />
+        <entry annotation="register GC datamodel H2D grid" />
+    </horizontal_grid>
+    <input_fields>
+        <field name_in_datamodel="EFLUX" name_in_file="GMAO-2D__EFLUX" grid_name="GIGC_h2D_grid" />
+    </input_fields>
+</gamil.3hours.input_data_fields>

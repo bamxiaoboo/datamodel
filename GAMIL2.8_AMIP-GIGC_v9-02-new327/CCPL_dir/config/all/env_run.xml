@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<Time_setting
+    case_name="original_case"
+    model_name="ideal_model_for_CCPL2"
+    run_type="initial"
+    leap_year="off"
+    start_date="20060101"
+    start_second="00000"
+    reference_date="00010101"
+    rest_freq_unit="seconds"
+    rest_freq_count="43200"
+    stop_option="date"
+    stop_date="20070101"
+    stop_second="00000"
+    stop_n="1"
+/>
