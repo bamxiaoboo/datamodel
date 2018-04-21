@@ -13,7 +13,6 @@
 #include "remap_operator_basis.h"
 #include "io_binary.h"
 #include "io_netcdf.h"
-#include "remap_operator_linear.h"
 #include <string.h>
 
 
@@ -287,10 +286,6 @@ void Remap_weight_of_operator_class::renew_vertical_remap_weights(Remap_grid_cla
 
 	for (i = 0; i < remap_weights_of_operator_instances.size(); i ++) {
 		EXECUTION_REPORT_ERROR_OPTIONALLY(REPORT_ERROR, -1, remap_weights_of_operator_instances[i]->duplicated_remap_operator != NULL, "C-Coupler error7 in renew_vertical_remap_weights of Remap_weight_of_operator_class"); 
-		if (i == 1500) {
-			EXECUTION_REPORT_LOG(REPORT_LOG, -1, true, "DYN3DCHECK at remap operator instance %d", i);
-			check_linear_1D = true;
-		}
 		new_remap_operator = remap_weights_of_operator_instances[i]->duplicated_remap_operator->duplicate_remap_operator(true);
 		new_remap_operator->set_src_grid(runtime_remap_grid_src);
 		new_remap_operator->set_dst_grid(runtime_remap_grid_dst);
@@ -321,7 +316,6 @@ void Remap_weight_of_operator_class::renew_vertical_remap_weights(Remap_grid_cla
 //		new_remap_operator->get_remap_weights_group(3)->compare_to_another_sparse_matrix(remap_weights_of_operator_instances[i]->duplicated_remap_operator->get_remap_weights_group(3));
 		delete remap_weights_of_operator_instances[i]->duplicated_remap_operator;
 		remap_weights_of_operator_instances[i]->duplicated_remap_operator = new_remap_operator;
-		check_linear_1D = false;
 	}
 
 	if (runtime_remap_operator_grid_src != NULL) {

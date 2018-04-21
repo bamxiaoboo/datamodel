@@ -37,9 +37,7 @@
 #define COORD_UNIT_RADIANS                    "radians"
 #define COORD_UNIT_DEGREES                    "degrees"
 #define GRID_FIELD_ATTRIBUTE_UNIT             "unit"
-//#define SPHERE_GRID_ROTATION_LAT_THRESHOLD    ((double) 70.0)
-#define SPHERE_GRID_ROTATION_LAT_THRESHOLD    ((double) 83.0)
-
+#define SPHERE_GRID_ROTATION_LAT_THRESHOLD    ((double) 70.0)
 
 
 class Runtime_remap_function;
@@ -231,7 +229,6 @@ class Remap_grid_class
 		void calculate_lev_sigma_values();
 		bool is_sigma_grid();
 		Remap_grid_data_class *get_sigma_grid_sigma_value_field();
-		Remap_grid_data_class *get_hybrid_grid_coefficient_field() { return hybrid_grid_coefficient_field; }
 		Remap_grid_data_class *get_sigma_grid_surface_value_field() { return sigma_grid_surface_value_field; }
 		bool is_sigma_grid_surface_value_field_specified() { return sigma_grid_surface_value_field_specified; }
 		void allocate_sigma_grid_specific_fields(Remap_grid_data_class*, Remap_grid_data_class*, Remap_grid_data_class*, double, double);

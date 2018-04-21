@@ -963,7 +963,6 @@ Remapping_configuration::Remapping_configuration()
 {
 	comp_id = -1;
 	remapping_settings.push_back(new Remapping_setting(REMAP_OPERATOR_NAME_BILINEAR, "state"));
-//	remapping_settings.push_back(new Remapping_setting(REMAP_OPERATOR_NAME_DISTWGT, "state"));
 	remapping_settings.push_back(new Remapping_setting(REMAP_OPERATOR_NAME_CONSERV_2D, "flux"));
 }
 

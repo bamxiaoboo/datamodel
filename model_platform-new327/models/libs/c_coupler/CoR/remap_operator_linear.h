@@ -35,6 +35,4 @@ class Remap_operator_linear: public Remap_operator_1D_basis
 };
 
 
-extern bool check_linear_1D;
-
 #endif

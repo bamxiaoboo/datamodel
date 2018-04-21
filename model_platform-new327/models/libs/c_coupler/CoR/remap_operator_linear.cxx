@@ -13,9 +13,6 @@
 #include <math.h>
 
 
-bool check_linear_1D = false;
-
-
 void Remap_operator_linear::set_parameter(const char *parameter_name, const char *parameter_value)
 {
     EXECUTION_REPORT(REPORT_ERROR, -1, enable_to_set_parameters, 
@@ -58,15 +55,7 @@ void Remap_operator_linear::calculate_remap_weights()
 
 	EXECUTION_REPORT(REPORT_ERROR, -1, array_size_src > 1, "Less than three source cells for linear interpolation are not enough");
 
-	if (check_linear_1D) {
-		for (int j = 0; j < src_grid->get_grid_size(); j ++)
-			EXECUTION_REPORT_LOG(REPORT_LOG, -1, true, "DYN3DCHECK linear wgt index src coord %d: %lf", j, coord_values_src[j]);
-	}
-
     for (i = 0; i < dst_grid->get_grid_size(); i ++) {
-		if (check_linear_1D) {
-			EXECUTION_REPORT_LOG(REPORT_LOG, -1, true, "DYN3DCHECK  linear wgt index for %d: dst_coord is %lf, src index is [%d %d]", i, coord_values_dst[i], src_cell_index_left[i], src_cell_index_right[i]);
-		}
 		if (src_cell_index_left[i] == -1 || src_cell_index_right[i] == -1)
 			continue;
 		weight_src_indexes[0] = src_cell_index_left[i];
@@ -90,9 +79,6 @@ void Remap_operator_linear::calculate_remap_weights()
 				remap_weight_values[0] = fabs(coord_differences[1])/fabs(coord_differences[0]-coord_differences[1]);
 				remap_weight_values[1] = -fabs(coord_differences[0])/fabs(coord_differences[0]-coord_differences[1]);			 
 			}
-		}
-		if (check_linear_1D) {
-			EXECUTION_REPORT_LOG(REPORT_LOG, -1, true, "DYN3DCHECK  linear wgt value for %d: dst_coord is %lf, %lf(%d: %lf) %lf(%d: %lf)", i, coord_values_dst[i], remap_weight_values[0], src_cell_index_left[i], coord_values_src[src_cell_index_left[i]], remap_weight_values[1], src_cell_index_right[i], coord_values_src[src_cell_index_right[i]]);
 		}
 		add_remap_weights_to_sparse_matrix(weight_src_indexes, i, remap_weight_values, 2, 1, true);		
     }

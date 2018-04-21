@@ -326,7 +326,6 @@ void Runtime_trans_algorithm::receive_data_in_temp_buffer()
 		int comp_min_remote_lag_seconds = comp_node->get_min_remote_lag_seconds();
 		long current_receiver_full_seconds = ((long)time_mgr->get_current_num_elapsed_day())*86400 + time_mgr->get_current_second();
 		long current_sender_full_seconds = ((current_receive_field_sender_time%((long)100000000000000))/((long)100000))*86400 + (current_receive_field_sender_time%((long)100000));
-        EXECUTION_REPORT_LOG(REPORT_LOG, comp_id, true, "comp_min_remote_lag_seconds: %ld %d %ld", current_sender_full_seconds, comp_min_remote_lag_seconds, current_receiver_full_seconds);
 		if (current_sender_full_seconds + 2*comp_min_remote_lag_seconds > current_receiver_full_seconds)
 			return;
 	}
