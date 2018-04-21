@@ -1,1 +1,0 @@
-/data3/work/yuxinzhu/test/gamil-new/model_platform/models/atm_chem/GIGC/Code.v9-02/GeosApm/a3_read_mod.F

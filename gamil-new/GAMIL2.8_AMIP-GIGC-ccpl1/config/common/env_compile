@@ -1,8 +1,0 @@
-export ENSEMBLE_NUM=0
-export ENSEMBLE_IDX=-1
-export LIBROOT=/data3/work/yuxinzhu/test/gamil-new/GAMIL2.8_AMIP-GIGC-ccpl1/run/lib
-export INCROOT=/data3/work/yuxinzhu/test/gamil-new/GAMIL2.8_AMIP-GIGC-ccpl1/run/lib/include
-export COMMON_COMPILER=/data3/work/yuxinzhu/test/gamil-new/GAMIL2.8_AMIP-GIGC-ccpl1/config/common/machine/generic_linux/common_compiler.generic_linux.cfg
-export OS=Linux
-export GMAKE_J=8
-export SUBMITTER=mpi
