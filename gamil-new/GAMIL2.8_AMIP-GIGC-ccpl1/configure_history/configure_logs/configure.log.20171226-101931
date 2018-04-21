@@ -1,0 +1,6 @@
+configure model experiment GAMIL2.8_AMIP-GIGC-ccpl1 by user yuxinzhu on computer public2.c-coupler.org at time 20171226-101931
+
+
+
+[ERROR]: Input data file "/data3/work/yuxinzhu/test/inputdata/atm/GAMIL2.0_128x60/boundary_condition/amip_bc.gamil.128x060.1951-2010.nc" does not exist! Please check.
+

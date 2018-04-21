@@ -1,0 +1,10 @@
+t_setoption: option disabled: Usr Sys   
+t_setoption: option disabled: Usr Sys   
+t_setoption: option disabled: Usr Sys   
+t_setoption: option disabled: Usr Sys   
+C-Coupler REPORT LOG: 1 computing nodes are used in this experiment
+C-Coupler REPORT LOG: The 0 process of the current component is run on the host public2.c-coupler.org
+rank 3 in job 779  public2.c-coupler.org_32973   caused collective abort of all ranks
+  exit status of rank 3: return code 174 
+rank 0 in job 779  public2.c-coupler.org_32973   caused collective abort of all ranks
+  exit status of rank 0: return code 174 

@@ -1,0 +1,19 @@
+surface_subroutines_with_coupler_mod.o surface_subroutines_with_coupler_mod.d : surface_subroutines_with_coupler_mod.F90
+surface_subroutines_with_coupler_mod.o : misc.h
+surface_subroutines_with_coupler_mod.o : params.h
+surface_subroutines_with_coupler_mod.o : shr_kind_mod.o
+surface_subroutines_with_coupler_mod.o : pmgrid.o
+surface_subroutines_with_coupler_mod.o : ppgrid.o
+surface_subroutines_with_coupler_mod.o : phys_grid.o
+surface_subroutines_with_coupler_mod.o : shr_sys_mod.o
+surface_subroutines_with_coupler_mod.o : infnan.o
+surface_subroutines_with_coupler_mod.o : comsrf.o
+surface_subroutines_with_coupler_mod.o : rgrid.o
+surface_subroutines_with_coupler_mod.o : mpishorthand.o
+surface_subroutines_with_coupler_mod.o : history.o
+surface_subroutines_with_coupler_mod.o : comlun.h
+surface_subroutines_with_coupler_mod.o : comctl.h
+surface_subroutines_with_coupler_mod.o : physconst.o
+surface_subroutines_with_coupler_mod.o : constituents.o
+surface_subroutines_with_coupler_mod.o : commap.o
+surface_subroutines_with_coupler_mod.o : dycore.o

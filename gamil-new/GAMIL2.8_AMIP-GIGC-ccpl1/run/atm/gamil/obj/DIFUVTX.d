@@ -1,0 +1,3 @@
+DIFUVTX.o DIFUVTX.d : DIFUVTX.F
+DIFUVTX.o : mpi_gamil.o
+DIFUVTX.o : PARADYN

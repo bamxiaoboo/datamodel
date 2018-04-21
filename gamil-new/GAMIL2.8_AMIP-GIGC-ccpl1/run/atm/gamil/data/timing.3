@@ -1,0 +1,78 @@
+Procid = 3
+Wallclock timer cost est.:        0 usec per start/stop pair
+CPU accumulation interval is 0.01 seconds
+
+Stats for thread 0:
+Name                         Called    Wallclock Max       Min       
+total                                1 122485.602 122485.602 122485.602 
+  initialization                     1     4.289     4.289     4.289 
+    mpi_send                         1     0.000     0.000     0.000 
+mpi_bcast                          123     0.551     0.076     0.000 
+dyn search arra               28882884    10.102     0.000     0.000 
+dyn pack/unpack               26543870   159.377     0.014     0.000 
+dyn sendrecv                  26543870  1073.571     0.100     0.000 
+dyn bcast lon                  1208928   111.539     0.041     0.000 
+    mpi_allgather                    1     0.000     0.000     0.000 
+srfflx_rst_st                   105133     5.352     0.002     0.000 
+mpi_scatter                        206     1.142     0.078     0.000 
+mpi_gather                       69317    38.900     0.024     0.000 
+    aerosol_init                     1     0.051     0.051     0.051 
+update_srf_st                   131410     4.518     0.000     0.000 
+  stepon                             1 122481.305 122481.305 122481.305 
+    stepon_startup                   1     0.002     0.002     0.002 
+dyn polereduce                 1787135   222.451     0.050     0.000 
+    stepon_st                    52562 96422.422   307.826     0.000 
+    d_p_coupling                 26281   328.984     0.266     0.006 
+mpi_alltoallv                    52562   266.941     0.258     0.001 
+    phys_driver                  26281 16042.615     9.867     0.311 
+      physpkg_st                 26281    19.067     0.127     0.000 
+      bc_physics                 26281 12802.111     8.849     0.253 
+        vert_interpolat        6307440   373.855     0.021     0.000 
+      atmlnd_drv                 26281  2439.087     1.276     0.025 
+        atm_to_lnd_pc            26281  1463.978     1.238     0.001 
+          atm_to_lnd_comm        26281  1442.967     1.237     0.000 
+        clm_driver               26281   713.314     0.180     0.016 
+          clm_loop1              26281   474.612     0.083     0.010 
+          clm_loop2              26281   141.508     0.028     0.003 
+          histup                 26281    93.188     0.029     0.002 
+          clm_output             26281     3.013     0.160     0.000 
+        lnd_to_atm_pc            26281   261.290     0.097     0.000 
+          lnd_to_atm_comm        26281   251.192     0.096     0.000 
+      camoce                     26281    33.330     0.008     0.001 
+      camice                     26281     7.515     0.001     0.000 
+        camice_st                26281     0.395     0.000     0.000 
+      ac_physics                 26281   703.795     0.078     0.022 
+      global_ts                  26281     0.763     0.010     0.000 
+        mpi_reduce                  13     0.025     0.010     0.000 
+    p_d_coupling                 26281   258.678     0.072     0.007 
+    dynpkg                       26281  9427.420     1.598     0.242 
+      DYFRAM                     26281  9091.042     1.485     0.232 
+        DYNAMICS                131405  7611.807     0.531     0.036 
+          dyn latreduce         131406    98.050     0.023     0.000 
+          IAPTRSF                    1     0.002     0.002     0.002 
+          DIFPS0                131406    16.720     0.023     0.000 
+          DIFPS1                394216   727.055     0.073     0.000 
+            DIFPS1 COMP        1182648   278.483     0.021     0.000 
+          DIAG                  394216  1297.626     0.037     0.001 
+            DIAG COMP           394216  1023.827     0.024     0.001 
+          DIFUVT                394215  2593.052     0.116     0.004 
+            DIFUVT COMM        1971075   442.252     0.101     0.000 
+            DIFUVT COMP        2365290  2046.465     0.031     0.000 
+          SEMIU                 262810   111.995     0.027     0.000 
+            GAUSS               262810    31.217     0.011     0.000 
+              dyn 1D sendrecv   788430    12.806     0.011     0.000 
+          MINUS_INGW            131405    19.328     0.025     0.000 
+          INNER                 262810   293.090     0.063     0.000 
+dyn allreduce                   525620   213.916     0.079     0.000 
+          PLUS_INGW             131405    83.357     0.081     0.000 
+          TEM                   131405   682.375     0.092     0.003 
+          WRITE                 131405     0.016     0.000     0.000 
+        QPDATA1                 131405  1284.814     0.175     0.008 
+      HDIFUS                     26281   172.577     0.050     0.004 
+      wshist                     26281    47.170     0.395     0.000 
+        h_normalize              69301     2.969     0.001     0.000 
+        dump_field                4760    42.858     0.280     0.000 
+        h_zero                   69301     1.098     0.000     0.000 
+      wrapup                     26281     0.092     0.000     0.000 
+
+TIMER OVERHEAD (wallclock seconds) =    36.276775
