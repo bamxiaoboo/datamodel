@@ -1,0 +1,15 @@
+
+
+GIGC_grid_file = add_nc_file("grids/GEOS-5_Reduced_Vertical_Grid_47_Levels.nc", "r")
+GIGC_1D_grid_level_edge = new_1D_grid("lev", "levels", GIGC_grid_file%Alt-001)
+GIGC_1D_grid_lon = new_1D_grid("lon", "degrees", "cyclic", GIGC_grid_file%Lon-000)
+GIGC_1D_grid_lon%center%lon = read_field(GIGC_grid_file, "LON") 
+GIGC_1D_grid_lat = new_1D_grid("lat", "degrees", GIGC_grid_file%Lat-000)
+GIGC_1D_grid_lat%center%lat = read_field(GIGC_grid_file, "LAT") 
+GIGC_sigma_value_field = read_field(GIGC_1D_grid_level_edge, GIGC_grid_file, "Bp")
+GIGC_hybrid_grid_coefficient = read_field(GIGC_1D_grid_level_edge, GIGC_grid_file, "Ap")
+set_lev_grid_sigma_info(GIGC_1D_grid_level_edge, GIGC_sigma_value_field, "100", "1.0", GIGC_hybrid_grid_coefficient)
+GIGC_1D_grid_level_middle = new_middle_grid(GIGC_1D_grid_level_edge)
+GIGC_h2D_grid = combine_grids(GIGC_1D_grid_lon, GIGC_1D_grid_lat)
+GIGC_3D_grid = combine_grids(GIGC_1D_grid_lon, GIGC_1D_grid_lat, GIGC_1D_grid_level_middle)
+

@@ -1,0 +1,9 @@
+COMPSET=GAMIL2-GIGC
+MACH=generic_linux
+export LIBROOT=/data/home/liuli/git_checkout/model_experiments/GAMIL2-GIGC-test-all_fields/run/lib
+export INCROOT=/data/home/liuli/git_checkout/model_experiments/GAMIL2-GIGC-test-all_fields/run/lib/include
+export COMMON_COMPILER=/data/home/liuli/git_checkout/model_experiments/GAMIL2-GIGC-test-all_fields/config/common/machine/generic_linux/common_compiler.generic_linux.cfg
+export ENSEMBLE_NUM=0
+export OS=Linux
+export GMAKE_J=8
+export SUBMITTER=mpi

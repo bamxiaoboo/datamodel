@@ -1,0 +1,23 @@
+gamil.o gamil.d : gamil.F90
+gamil.o : misc.h
+gamil.o : params.h
+gamil.o : pmgrid.o
+gamil.o : dycore.o
+gamil.o : history.o
+gamil.o : units.o
+gamil.o : phys_buffer.o
+gamil.o : ppgrid.o
+gamil.o : comsrf.o
+gamil.o : phys_grid.o
+gamil.o : comfm1.o
+gamil.o : prognostics.o
+gamil.o : mpishorthand.o
+gamil.o : mpi_gamil.o
+gamil.o : restart_mod.o
+gamil.o : register_decompositions_mod.o
+gamil.o : register_all_variables_mod.o
+gamil.o : coupling_chemistry_model_mod.o
+gamil.o : comctl.h
+gamil.o : comlun.h
+gamil.o : gpt.inc
+gamil.o : RK_or_MG.h
