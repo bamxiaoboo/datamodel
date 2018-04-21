@@ -1,1 +1,0 @@
-/data3/work/yuxinzhu/test/inputdata/atm/GAMIL2.8_128x60/aerosol/Aerosol1850-2105RCP26gamil.nc

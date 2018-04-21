@@ -1,5 +1,0 @@
-SETMSA0.o SETMSA0.d : SETMSA0.F
-SETMSA0.o : misc.h
-SETMSA0.o : params.h
-SETMSA0.o : PARADYN
-SETMSA0.o : commpi.h

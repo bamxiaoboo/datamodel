@@ -1,1 +1,0 @@
-/data3/work/yuxinzhu/test/model_platform/models/atm_chem/GIGC/Code.v9-02/KPP/SOA/gckpp_Model.F90

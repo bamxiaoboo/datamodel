@@ -1,1 +1,0 @@
-/data3/work/yuxinzhu/test/inputdata/atm/GAMIL2.8_128x60/lnd/surface-data.128x060.nc

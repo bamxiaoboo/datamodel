@@ -1,1 +1,0 @@
-GAUSS.o GAUSS.d : GAUSS.F

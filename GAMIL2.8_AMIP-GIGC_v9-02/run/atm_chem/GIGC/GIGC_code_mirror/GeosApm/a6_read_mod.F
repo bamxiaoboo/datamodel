@@ -1,1 +1,0 @@
-/data3/work/yuxinzhu/test/model_platform/models/atm_chem/GIGC/Code.v9-02/GeosApm/a6_read_mod.F
