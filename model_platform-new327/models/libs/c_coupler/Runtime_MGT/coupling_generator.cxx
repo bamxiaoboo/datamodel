@@ -932,6 +932,9 @@ Component_import_interfaces_configuration::Component_import_interfaces_configura
 		import_interfaces_configuration.push_back(new Import_interface_configuration(host_comp_id, comp_full_name, import_interface->get_interface_name(), interface_XML_element, XML_file_name, interface_mgr, check_comp_existence));
 	}
 
+    /*Load_datamodel_instatnces_configuration*/
+    //datamodel_mgr->load_datamodel_instatnces_configuration(host_comp_id);
+
 	delete XML_file;
 	EXECUTION_REPORT_LOG(REPORT_LOG, host_comp_id, true, "Finish loading the configuration of import interfaces from the XML file %s", XML_file_name);
 }

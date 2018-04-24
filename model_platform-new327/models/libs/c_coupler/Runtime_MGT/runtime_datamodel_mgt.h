@@ -22,9 +22,9 @@ struct Datamodel_field_info {
     char field_name_in_IO_file[NAME_STR_SIZE];
     char field_datatype_in_IO_file[NAME_STR_SIZE];
     Field_mem_info *field_data_mem;
-    double add_offset;//????
-    char field_unit;
-    char field_unit_in_IO_file;
+    //double add_offset;//????
+    char field_unit[NAME_STR_SIZE];
+    char field_unit_in_IO_file[NAME_STR_SIZE];
     //bool have_scale_factor;
     //double scale_factor;//????
 };
@@ -150,9 +150,6 @@ class Datamodel_field_read_handler
 		char time_field_format[16][NAME_STR_SIZE];//
 		int time_field_format_id[16];//xml, time_field
 
-		int offset_num_elapsed_day;// Time offset is a date???
-		int id_time_format_time_offset;//time offset
-		int period;// 0: acyclic; 1: year; 2: month; 3: day
 
 		int pos_time_interval_left;
 		int pos_time_interval_right;
@@ -216,8 +213,16 @@ class Datamodel_mgt
 {
 	struct Datamodel_instance
 	{
+        char offset_unit[NAME_STR_SIZE];
+        int offset_count;
+
+		int period;// 0: acyclic; 1: year; 2: month; 3: day
+        int period_start_time;
+        char period_unit[NAME_STR_SIZE];
+        int period_count;
+
 		char datamodel_instance_name[NAME_STR_SIZE];
-		Runtime_datamodel_algorithm* Runtime_datamodel_instance;
+		Runtime_datamodel_algorithm* Runtime_datamodel;
 	}
 private:
 	std::vector<Datamodel_instance*> Runtime_datamodel_instances;
@@ -225,7 +230,7 @@ public:
 	Datamodel_mgt() {};
 	~Datamodel_mgt();
 	Runtime_datamodel *get_a_datamodel(const char*);
-}
+};
 
 
 
