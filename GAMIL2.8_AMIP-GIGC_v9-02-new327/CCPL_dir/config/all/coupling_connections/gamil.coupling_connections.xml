@@ -1,0 +1,21 @@
+<root>
+<datamodel_instance name="3hours_GIGC">
+    <datamodel name="3hours_GIGC"  />
+    <time_mapping_configuration status="on" specification="period">
+        <period_setting status="on" period_start_time="2006" period_unit="nyear" period_count="1"  />
+    </time_mapping_configuration>
+    <time_mapping_configuration status="on" specification="offset">
+        <offset_setting status="on" offset_unit="nyears" offset_count="0"  />
+    </time_mapping_configuration>
+</datamodel_instance>
+
+<datamodel_instance name="6hours_GIGC">
+    <datamodel name="6hours_GIGC"  />
+    <time_mapping_configuration status="on" specification="period">
+        <period_setting status="on" period_start_time="2006" period_unit="nyear" period_count="1"  />
+    </time_mapping_configuration>
+    <time_mapping_configuration status="on" specification="offset">
+        <offset_setting status="on" offset_unit="nyears" offset_count="0"  />
+    </time_mapping_configuration>
+</datamodel_instance>
+</root>
