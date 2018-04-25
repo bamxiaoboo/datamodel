@@ -932,8 +932,6 @@ Component_import_interfaces_configuration::Component_import_interfaces_configura
 		import_interfaces_configuration.push_back(new Import_interface_configuration(host_comp_id, comp_full_name, import_interface->get_interface_name(), interface_XML_element, XML_file_name, interface_mgr, check_comp_existence));
 	}
 
-    /*Load_datamodel_instatnces_configuration*/
-    //datamodel_mgr->load_datamodel_instatnces_configuration(host_comp_id);
 
 	delete XML_file;
 	EXECUTION_REPORT_LOG(REPORT_LOG, host_comp_id, true, "Finish loading the configuration of import interfaces from the XML file %s", XML_file_name);
@@ -1047,6 +1045,10 @@ void Coupling_generator::generate_coupling_procedures_common(int API_id, MPI_Com
 					std::vector<std::pair<const char*, const char*> > configuration_export_producer_info;
 					coupling_connection = new Coupling_connection(coupling_generator->apply_connection_id());
 					comp_import_interfaces_config->get_interface_field_import_configuration(import_interfaces_of_a_component[j]->get_interface_name(), import_fields_name[k], configuration_export_producer_info);
+                    
+                    /*Load_datamodel_instatnces_configuration*/
+                    datamodel_instances_mgr->load_datamodel_instatnces_configuration(host_comp_id, all_comp_fullnames_for_coupling_generation[i], configuration_export_producer_info);
+
 					strcpy(coupling_connection->dst_comp_full_name, all_comp_fullnames_for_coupling_generation[i]);
 					strcpy(coupling_connection->dst_interface_name, import_interfaces_of_a_component[j]->get_interface_name());
 					coupling_connection->fields_name.push_back(strdup(import_fields_name[k]));					

@@ -211,27 +211,41 @@ class Runtime_datamodel
 
 class Datamodel_mgt
 {
-	struct Datamodel_instance
-	{
-        char offset_unit[NAME_STR_SIZE];
-        int offset_count;
+    private:
+        std::vector<Runtime_datamodel*> Runtime_datamodels;
+    public:
+        Datamodel_mgt() {};
+        ~Datamodel_mgt();
+};
 
-		int period;// 0: acyclic; 1: year; 2: month; 3: day
-        int period_start_time;
-        char period_unit[NAME_STR_SIZE];
-        int period_count;
+class Datamodel_instance
+{
+private:
+    char offset_unit[NAME_STR_SIZE];
+    int offset_count;
 
-		char datamodel_instance_name[NAME_STR_SIZE];
-		Runtime_datamodel_algorithm* Runtime_datamodel;
-	}
+	int period;// 0: acyclic; 1: year; 2: month; 3: day
+    int period_start_time;
+    char period_unit[NAME_STR_SIZE];
+    int period_count;
+
+	char datamodel_instance_name[NAME_STR_SIZE];
+    char datamodel_name[NAME_STR_SIZE];
+	//Runtime_datamodel_algorithm* Runtime_datamodel;
+public:
+    Datamodel_instance() {};
+    ~Datamodel_instance();
+};
+
+class Datamodel_instances_mgt
+{
 private:
 	std::vector<Datamodel_instance*> Runtime_datamodel_instances;
 public:
-	Datamodel_mgt() {};
-	~Datamodel_mgt();
-	Runtime_datamodel *get_a_datamodel(const char*);
+	Datamodel_instances_mgt() {};
+	~Datamodel_instances_mgt();
+	Runtime_datamodel_instances *get_a_datamodel_instance(int, const char*, TiXmlNode*, &producers_info);//whether to return?the type
+    void *load_datamodel_instatnces_configuration(int, const char*);
 };
-
-
 
 #endif
