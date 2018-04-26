@@ -221,20 +221,30 @@ class Datamodel_mgt
 class Datamodel_instance
 {
 private:
-    char offset_unit[NAME_STR_SIZE];
-    int offset_count;
+    int specification;// 0 for default, 1 for period, 2 for offset
 
-	int period;// 0: acyclic; 1: year; 2: month; 3: day
-    int period_start_time;
-    char period_unit[NAME_STR_SIZE];
-    int period_count;
+    struct Offset_setting {
+        int offset_unit;
+        int offset_count;
+        bool offset_is_set;
+    };
+
+    struct Period_setting {
+        int period_unit;// 0 for years, 1 for months, 2 for days, 3 for seconds
+        int period_start_time;
+        int period_count;
+        bool period_is_set;// 0 for has not been set, 1 for has been set
+    };
 
 	char datamodel_instance_name[NAME_STR_SIZE];
     char datamodel_name[NAME_STR_SIZE];
 	//Runtime_datamodel_algorithm* Runtime_datamodel;
 public:
-    Datamodel_instance() {};
+    Datamodel_instance(int, const char*, const char*, const char*, TiXmlElement*, std::pair<const char*, const char*>);
     ~Datamodel_instance();
+    char *get_datamodel_instance_name() {return datamodel_instance_name;}
+    int *check_time_format(const char*, int);//includ checking if unit and start time match for period
+    int *check_unit_format(const char*);
 };
 
 class Datamodel_instances_mgt
@@ -244,8 +254,7 @@ private:
 public:
 	Datamodel_instances_mgt() {};
 	~Datamodel_instances_mgt();
-	Runtime_datamodel_instances *get_a_datamodel_instance(int, const char*, TiXmlNode*, &producers_info);//whether to return?the type
-    void *load_datamodel_instatnces_configuration(int, const char*);
+	Runtime_datamodel_instances *config_a_datamodel_instance(int, const char*, const char*, const char*, TiXmlNode*, &producers_info);//whether to return?the type
 };
 
 #endif
