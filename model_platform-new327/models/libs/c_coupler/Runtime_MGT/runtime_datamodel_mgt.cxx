@@ -12,6 +12,7 @@
 #include "runtime_datamodel_mgt.h"
 #include "memory_mgt.h"
 #include "field_info_mgt.h"
+#include "timer_mgt.h"
 
 void *load_datamodel_instatnces_configuration(int comp_id, const char *comp_full_name, std::vector<std::pair<const char*, const char*> > &producers_info)
 {
@@ -38,7 +39,7 @@ void *load_datamodel_instatnces_configuration(int comp_id, const char *comp_full
 
     for (XML_element_node = root_XML_element->FirstChilde(); XML_element_node != NULL; XML_element_node = XML_element_node->NextSibling()) {
         data_inst_XML_element = XML_element_node->ToElement();
-        EXECUTION_REPORT(REPORT_ERROR, -1, words_are_the_same(data_inst_XML_element->Value(),"datamodel_instance"), "The XML element for specifying the configuration information of a Datamodel instance in the XML configuration file \"%s\" should be named \"datamodel_instance\". Please verify the XML file around the line number %d.", XML_file_name, data_inst_XML_element->Row());
+        EXECUTION_REPORT(REPORT_ERROR, comp_id, words_are_the_same(data_inst_XML_element->Value(),"datamodel_instance"), "The XML element for specifying the configuration information of a Datamodel instance in the XML configuration file \"%s\" should be named \"datamodel_instance\". Please verify the XML file around the line number %d.", XML_file_name, data_inst_XML_element->Row());
         const char *datamodel_instance_name = get_XML_attribute(comp_id, 80, data_inst_XML_element, "name", XML_file_name, line_number, "the \"name\" of an Datamodel instance", "Datamodel instance configuration file", true);//should be false?
         if (!is_XML_setting_on(comp_id, data_inst_XML_element, XML_file_name, "the \"status\" of the Datamodel instance for an component model", "Datamodel instance configuration file"))
             continue;
@@ -52,6 +53,16 @@ void *load_datamodel_instatnces_configuration(int comp_id, const char *comp_full
 
 Datamodel_instances_mgt::Datamodel_instances_mgt(int comp_id, char *datamodel_instance_name, TiXmlNode *data_inst_XML_element, producers_info){
     int line_number;
+
+    Offset_setting.offset_unit = 0;
+    Offset_setting.is_offset_set = 0;
+    Offset_setting.offset_count = 0;
+
+    Period_setting.period_unit = 0;
+    Period_setting.period_start_time = 0;
+    Period_setting.period_count = 0;
+    Period_setting.is_period_set = 0;
+
     TiXmlNode *datamodel_name_element_node = data_inst_XML_element->FirstChild();
     if (inst_element_node->Type() != TiXmlNode::TINYXML_ELEMENT)
         return;//??
@@ -70,20 +81,34 @@ Datamodel_instances_mgt::Datamodel_instances_mgt(int comp_id, char *datamodel_in
 
                 if (!is_XML_setting_on(comp_id, period_setting_element, XML_file_name, "the status of period setting configuration for a datamodel instance", "datamodel instance configuration file"))
                     continue;
-                else
-                    EXECUTION_REPORT(ERROR, comp_id, !(is_XML_setting_on(comp_id, period_setting_element, XML_file_name, "the status of period setting configuration for a datamodel instance", "datamodel instance configuration file") && is_period_set), "When setting the datamodel instance configuration of the component \"%s\" in the XML file \"%s\", the XML element for period setting should only be set once. Pleas verify the XML file arround the line number %d.", comp_full_name, XML_file_name, period_setting_element->Row());
-                is_period_set = 1;
-                char *period_unit_config = get_XML_attribue(comp_id, 80, period_setting_element, "period_unit", XML_file_name, period_setting_element->Row(), "period unit of a datamodel instance", "datamodel instance configuration file", true);
-                Period_setting.period_unit = check_unit_format(*period_unit_config);
-                char *period_start_time_config = get_XML_attribute(comp_id, 80, period_setting_element, "period_start_time", XML_file_name, period_setting_element->Row(), "period start time of a datamodel instance", "datamodel instance configuration file", true);
-                Period_setting.period_start_time = check_time_format(period_start_time_config, Period_setting.period_unit);
-                char *period_count_config = get_XML_attribute(comp_id, 80, period_setting_element, "period_count", XML_file_name, period_setting_element->Row(), "period count of a datamodel instance", "datamodel instance configuration file", true);
-                Period_setting.period_count = atoi(period_count_config);
+                else {
+                    EXECUTION_REPORT(REPORT_ERROR, comp_id, words_are_the_same(period_setting_element->Value(),"period_setting"), "The XML element for specifying the period_setting information of a Datamodel instance in the XML configuration file \"%s\" should be named \"period_setting\". Please verify", "datamodel instance configuration file around the line number %d.", XML_file_name, period_seeting_element->Row());
+                    is_period_set = 1;
+                    char *period_unit_config = get_XML_attribue(comp_id, 80, period_setting_element, "period_unit", XML_file_name, period_setting_element->Row(), "period unit of a datamodel instance", "datamodel instance configuration file", true);
+                    Period_setting.period_unit = check_unit_format(*period_unit_config, XML_file_name, period_setting_element);
+                    char *period_start_time_config = get_XML_attribute(comp_id, 80, period_setting_element, "period_start_time", XML_file_name, period_setting_element->Row(), "period start time of a datamodel instance", "datamodel instance configuration file", true);
+                    Period_setting.period_start_time = check_time_format(period_start_time_config, Period_setting.period_unit);//??
+                    char *period_count_config = get_XML_attribute(comp_id, 80, period_setting_element, "period_count", XML_file_name, period_setting_element->Row(), "period count of a datamodel instance", "datamodel instance configuration file", true);
+                    Period_setting.period_count = atoi(period_count_config);
+                }
             }
         }
         else if (specification_name == "offset") {
             specification = 1;
-            //for ()
+            for (TiXmlNode *offset_setting_element_node = time_mapping_element->FirstChild(); offset_setting_element_node != NULL; offset_setting_element_Node = offset_setting_element_node->NextSibling()) {
+                TiXmlElement *offset_setting_element = offset_setting_element_node->ToElement();
+
+                if (!is_XML_setting_on(comp_id, offset_setting_element, XML_file_name, "the status of offset setting configuration for a datamodel instance", "datamodel instance configuration file"))
+                    continue;
+                else
+                    EXECUTION_REPORT(REPORT_ERROR, comp_id, words_are_the_same(offset_setting_element->Value(),"offset_setting"), "The XML element for specifying the offset_setting information of a Datamodel instance in the XML configuration file \"%s\" should be named \"offset_setting\". Please verify", "datamodel instance configuration file around the line number %d.", XML_file_name, offset_setting_element->Row());
+                is_offset_set = 1;
+
+                char *offset_unit_config = get_XML_attribute(comp_id, NAME_STR_SIZE, offset_setting_element, "offset_unit", XML_file_name, offset_setting_element->Row(), "offset unit of a datamodel instance", "datamodel instance configuration file", true);
+                Offset_setting.offset_unit = check_unit_format(*offset_unit_config);
+                char *offset_count_config = get_XML_attribute(comp_id, NAME_STR_SIZE, offset_setting_elment, "offset_count", XML_file_name, offset_setting_element_Row(), "offset count of a datamodel instance", "offset instance configuration file", true);
+                Offset_setting.offset_count = atoi(offset_count_config);
+            }
         }
         else if (specification_name == "default")
             specification = 2;
@@ -103,9 +128,24 @@ void *Datamodel_instances_mgt::config_a_datamodel_instance(int comp_id, char *co
     return; 
 }
 
+int Datamodel_instance::check_unit_format(const char *Period_unit_config, const char *XML_file_name, TiXmlElement *Element) {
+    int id_unit_format;// 0 for not set, 1 for years, 2 for months, 3 for days, 4 for seconds
+
+    if (IS_TIME_UNIT_SECOND(Period_unit_config))
+        id_unit_format = 4;
+    else if (IS_TIME_UNIT_DAY(Period_unit_config))
+        id_unit_format = 3;
+    else if (IS_TIME_UNIT_MONTH(Period_unit_config))
+        id_unit_format = 2;
+    else if (IS_TIME_UNIT_YEAR(Period_unit_config))
+        id_unit_format = 1;
+    else {
+        id_unit_format = 0;
+        EXECUTION_REPORT(ERROR, comp_id, false, "the time unit config for Node %s in a datamodel instance must be one of the following options: %s, %s, %s, %s. Please check the XML file \"%s\" around the line number %d", Element->Value(), TIME_UNIT_STRING_SECOND, TIME_UNIT_STRING_DAY, TIME_UNIT_STRING_MONTH, TIME_UNIT_STRING_YEAR, XML_file_name, Element->Row());
+    }
+    return id_unit_format;
+}
+
 int Datamodel_instance::check_time_format(const char *Period_start_time_config, int Period_start_time) {
 }
 
-
-int Datamodel_instance::check_unit_format(const char *Period_unit_config) {
-}

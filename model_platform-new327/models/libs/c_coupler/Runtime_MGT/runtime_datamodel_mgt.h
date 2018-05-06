@@ -224,16 +224,16 @@ private:
     int specification;// 0 for default, 1 for period, 2 for offset
 
     struct Offset_setting {
-        int offset_unit;
+        int offset_unit;// 0 for not set, 1 for years, 2 for months, 3 for days, 4 for seconds
         int offset_count;
-        bool offset_is_set;
+        bool is_offset_set;
     };
 
     struct Period_setting {
-        int period_unit;// 0 for years, 1 for months, 2 for days, 3 for seconds
+        int period_unit;// 0 for not set, 1 for years, 2 for months, 3 for days, 4 for seconds
         int period_start_time;
         int period_count;
-        bool period_is_set;// 0 for has not been set, 1 for has been set
+        bool is_period_set;// 0 for has not been set, 1 for has been set
     };
 
 	char datamodel_instance_name[NAME_STR_SIZE];
